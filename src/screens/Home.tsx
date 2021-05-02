@@ -20,7 +20,6 @@ const HomeScreen: React.FC = () => {
     ]
     return (
         <>
-        <TopBar />
             <div>
                 <Typography variant="h5">
                     Vos Communautés

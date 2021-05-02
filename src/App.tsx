@@ -9,11 +9,13 @@ import HomeScreen from './screens/Home';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import ChannelScreen from './screens/Channel';
+import TopBar from './components/Topbar';
 
 function App() {
     return (
       <ThemeProvider theme={theme}>
-        <Router>
+            <TopBar />
+            <Router>
                 <Switch>
                     <Route path="/channel/:channelId">
                         <ChannelScreen />
