@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { io, Socket } from "socket.io-client";
 
 const ChannelScreen: React.FC = () => {
-    console.log('CHANNEL');
+    const { channelId } = useParams<{ channelId: string }>();
+    console.log('CHANNEL: ', channelId);
 
     const socket: Socket = io("localhost:8001", {
         transports: ['websocket'],
@@ -14,10 +16,10 @@ const ChannelScreen: React.FC = () => {
     useEffect(() => {
         socket
             .on('connect', () => {
-                socket.emit("auth", { channel: 'CHANNELID', user: 1 });
+                socket.emit("auth", { channel: `channel-${channelId}`, user: 1 });
             })
             .on('reconnect_attempt', () => {
-                socket.emit("auth", { channel: 'CHANNELID', user: 1 });
+                socket.emit("auth", { channel: `channel-${channelId}`, user: 1 });
             })
             .on('confirm', () => {
                 console.log('YOU ARE CONNECTED HOLY SHIT')

@@ -28,8 +28,8 @@ const HomeScreen: React.FC = () => {
 
                 {channels.map((channel) =>
                     <React.Fragment key={channel.id}>
-                    <Link to="channel">
-                        <ChannelItem channel={channel} />
+                        <Link to={`channel/${channel.id}`}>
+                            <ChannelItem channel={channel} />
                         </Link>
                     </React.Fragment>
                 )}

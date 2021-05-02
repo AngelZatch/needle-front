@@ -15,10 +15,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
                 <Switch>
-                    <Route path="/channel">
+                    <Route path="/channel/:channelId">
                         <ChannelScreen />
                 </Route>
-                <Route path="/">
+                <Route exact path="/">
                     <HomeScreen />
                 </Route>
             </Switch>
