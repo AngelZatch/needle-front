@@ -1,5 +1,6 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ChannelItem from '../components/ChannelItem';
 import TopBar from '../components/Topbar';
 import { Channel } from '../models/channel.model';
@@ -25,7 +26,13 @@ const HomeScreen: React.FC = () => {
                     Vos Communautés
                 </Typography>
 
-                {channels.map((channel) => <ChannelItem channel={channel} />)}
+                {channels.map((channel) =>
+                    <React.Fragment key={channel.id}>
+                    <Link to="channel">
+                        <ChannelItem channel={channel} />
+                        </Link>
+                    </React.Fragment>
+                )}
 
                 <Typography variant="h5">
                     Recommandé pour vous

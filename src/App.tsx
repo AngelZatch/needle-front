@@ -13,17 +13,17 @@ import ChannelScreen from './screens/Channel';
 function App() {
     return (
       <ThemeProvider theme={theme}>
-      <Router>
-          <Switch>
-              <Route path="/">
-                  <HomeScreen />
-                    </Route>
+        <Router>
+                <Switch>
                     <Route path="/channel">
                         <ChannelScreen />
-                    </Route>
-          </Switch>
-            </Router>
-            </ThemeProvider>
+                </Route>
+                <Route path="/">
+                    <HomeScreen />
+                </Route>
+            </Switch>
+        </Router>
+    </ThemeProvider>
   );
 }
 
