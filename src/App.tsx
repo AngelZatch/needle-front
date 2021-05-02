@@ -8,6 +8,7 @@ import {
 import HomeScreen from './screens/Home';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
+import ChannelScreen from './screens/Channel';
 
 function App() {
     return (
@@ -16,7 +17,10 @@ function App() {
           <Switch>
               <Route path="/">
                   <HomeScreen />
-              </Route>
+                    </Route>
+                    <Route path="/channel">
+                        <ChannelScreen />
+                    </Route>
           </Switch>
             </Router>
             </ThemeProvider>
