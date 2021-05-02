@@ -22,15 +22,15 @@ const ChannelScreen: React.FC = () => {
     useEffect(() => {
         socket
             .on('connect', () => {
-                socket.emit("auth", { channel: `channel-${channelId}`, user: 1 });
+                socket.emit("auth", { channel: channelId, user: 1 });
             })
             .on('reconnect_attempt', () => {
-                socket.emit("auth", { channel: `channel-${channelId}`, user: 1 });
+                socket.emit("auth", { channel: channelId, user: 1 });
             })
             .on('confirm', () => {
                 console.log('YOU ARE CONNECTED HOLY SHIT')
             })
-            .on('chat', (message: Message) => {
+            .on('message', (message: Message) => {
                 console.log('MESSAGE RECIEVED: ', message)
                 setMessages((messages) => [...messages, message]);
             })
@@ -41,7 +41,7 @@ const ChannelScreen: React.FC = () => {
     }, [channelId, socket]);
 
     const sendMessage = (message: string) => {
-        socket.emit('chat', { channel: channelId, message: new Message(1, message) });
+        socket.emit('message', { channel: channelId, message: new Message(1, message) });
     }
 
     return (
