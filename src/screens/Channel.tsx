@@ -30,7 +30,7 @@ const ChannelScreen: React.FC = () => {
             .on('confirm', () => {
                 console.log('YOU ARE CONNECTED HOLY SHIT')
             })
-            .on('chat', (message) => {
+            .on('chat', (message: Message) => {
                 console.log('MESSAGE RECIEVED: ', message)
                 setMessages((messages) => [...messages, message]);
             })
