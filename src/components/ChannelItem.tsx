@@ -1,4 +1,4 @@
-import { Card, CardMedia, makeStyles } from "@material-ui/core";
+import { Card, CardMedia, CardContent, makeStyles } from "@material-ui/core";
 import { Channel } from "../models/channel.model";
 import { theme } from "../theme";
 
@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 200,
         width: 186
+    },
+    contents: {
+        backgroundColor: 'black'
     }
 }));
 
@@ -26,7 +29,9 @@ const ChannelItem: React.FC<{ channel: Channel }> = ({ channel }) => {
             >
 
             </CardMedia>
-            { channel.title }
+            <CardContent className={classes.contents}>
+                {channel.title}
+            </CardContent>
         </Card>
     )
 }
