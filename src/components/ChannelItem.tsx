@@ -1,4 +1,10 @@
-import { Card, CardMedia, CardContent, makeStyles } from '@material-ui/core';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
 import { Channel } from '../models/channel.model';
 import { theme } from '../theme';
 
@@ -13,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: 186,
   },
   contents: {
-    backgroundColor: 'black',
+    backgroundColor: '#00000094',
   },
 }));
 
@@ -27,7 +33,9 @@ const ChannelItem: React.FC<{ channel: Channel }> = ({ channel }) => {
         image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Mario_Series_Logo.svg/1200px-Mario_Series_Logo.svg.png"
         title={channel.title}
       ></CardMedia>
-      <CardContent className={classes.contents}>{channel.title}</CardContent>
+      <CardContent className={classes.contents}>
+        <Typography>{channel.title}</Typography>
+      </CardContent>
     </Card>
   );
 };
