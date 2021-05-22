@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeScreen from './screens/Home';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import ChannelScreen from './screens/Channel';
 import TopBar from './components/Topbar';
@@ -10,8 +10,8 @@ import TopBar from './components/Topbar';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <TopBar />
       <Router>
+        <TopBar />
         <Switch>
           <Route path="/channel/:channelId">
             <ChannelScreen />

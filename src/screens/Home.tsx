@@ -1,4 +1,4 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Container, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ChannelItem from '../components/ChannelItem';
@@ -19,29 +19,43 @@ const HomeScreen: React.FC = () => {
   const channels: Array<Channel> = [
     {
       id: 1,
-      title: 'Hey',
+      title: 'Super Mario 64',
     },
     {
       id: 2,
-      title: 'Hey 2',
+      title: 'Mario 3D Games',
+    },
+    {
+      id: 3,
+      title: 'Zelda Stuff',
     },
   ];
   return (
     <>
       <Box paddingX="10px" paddingY="15px">
-        <Typography variant="h4">Vos Communautés</Typography>
+        <Typography variant="h4">Communautés où vous participez</Typography>
 
         <Box display="flex" flexWrap="wrap">
           {channels.map((channel) => (
-            <React.Fragment key={channel.id}>
+            <Box key={channel.id} padding="5px">
               <Link to={`channel/${channel.id}`}>
                 <ChannelItem channel={channel} />
               </Link>
-            </React.Fragment>
+            </Box>
           ))}
         </Box>
 
         <Typography variant="h4">Recommandé pour vous</Typography>
+
+        <Box display="flex" flexWrap="wrap">
+          {channels.map((channel) => (
+            <Box key={channel.id} padding="5px">
+              <Link to={`channel/${channel.id}`}>
+                <ChannelItem channel={channel} />
+              </Link>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </>
   );

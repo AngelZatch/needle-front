@@ -14,6 +14,11 @@ export const theme = createMuiTheme({
   },
   typography: {
     fontFamily: '"Poppins"',
+    h1: {
+      fontWeight: 700,
+      fontSize: '24px',
+      color: '#DBB46A',
+    },
     h4: {
       fontWeight: 600,
       fontSize: '18px',
