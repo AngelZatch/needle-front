@@ -1,11 +1,7 @@
-import { Drawer } from "@material-ui/core";
+import { Drawer } from '@material-ui/core';
 
 const SideMenu: React.FC = () => {
-    return (
-        <div>
-                Side Menu
-        </div>
-    )
-}
+  return <div>Side Menu</div>;
+};
 
 export default SideMenu;
