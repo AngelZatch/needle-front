@@ -10,7 +10,6 @@ interface LoginInput {
 }
 
 const LoginScreen: React.FC = () => {
-  console.log('LOG THE FUCK IN');
   const history = useHistory();
   const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);

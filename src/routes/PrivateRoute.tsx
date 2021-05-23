@@ -1,18 +1,19 @@
-import { useContext } from 'react';
 import { Redirect, Route, RouteProps } from 'react-router';
-import { AuthContext } from '../context/auth';
+import Cookies from 'universal-cookie';
 
 const PrivateRoute: React.FC<{ children: any } & RouteProps> = ({
   children,
   ...rest
 }) => {
-  const { user } = useContext(AuthContext);
+  const cookies = new Cookies();
+
+  const hasFastAccess = cookies.get('isAuth');
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        user ? (
+        hasFastAccess !== null ? (
           children
         ) : (
           <Redirect to={{ pathname: '/login', state: { from: location } }} />

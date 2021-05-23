@@ -1,4 +1,5 @@
 import { createContext, useCallback, useMemo, useReducer } from 'react';
+import Cookies from 'universal-cookie';
 
 export type AuthenticatedUser = { id: number; nickname: string };
 
@@ -25,17 +26,25 @@ const authReducer = (state: any, action: { type: string; payload: any }) => {
 
 const AuthProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { user: null });
-
-  const login = useCallback((user: AuthenticatedUser) => {
-    dispatch({
-      type: 'LOGIN',
-      payload: user,
-    });
+  const cookies = useMemo(() => {
+    return new Cookies();
   }, []);
+
+  const login = useCallback(
+    (user: AuthenticatedUser) => {
+      cookies.set('isAuth', '', { path: '/' });
+      dispatch({
+        type: 'LOGIN',
+        payload: user,
+      });
+    },
+    [cookies],
+  );
 
   const logout = useCallback(() => {
+    cookies.remove('isAuth');
     dispatch({ type: 'LOGOUT', payload: { user: null } });
-  }, []);
+  }, [cookies]);
 
   const value = useMemo(() => {
     return { user: state.user, login, logout };
