@@ -9,7 +9,7 @@ export const theme = createMuiTheme({
       main: '#FDF6EA',
     },
     text: {
-      primary: '#DBB46A',
+      primary: '#000000',
     },
   },
   typography: {

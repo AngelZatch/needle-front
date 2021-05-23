@@ -6,13 +6,13 @@ const PrivateRoute: React.FC<{ children: any } & RouteProps> = ({
   children,
   ...rest
 }) => {
-  const { hasUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        hasUser ? (
+        user ? (
           children
         ) : (
           <Redirect to={{ pathname: '/login', state: { from: location } }} />
