@@ -8,15 +8,6 @@
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.6",
     "@testing-library/user-event": "12.8.3",
-    "@types/jest": "26.0.23",
-    "@types/node": "12.20.11",
-    "@types/react": "17.0.4",
-    "@types/react-dom": "17.0.3",
-    "@types/react-router-dom": "5.1.7",
-    "eslint": "^7.27.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.6.5",
@@ -53,5 +44,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.23",
+    "@types/node": "12.20.11",
+    "@types/react": "17.0.4",
+    "@types/react-dom": "17.0.3",
+    "@types/react-router-dom": "5.1.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0"
   }
 }
