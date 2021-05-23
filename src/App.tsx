@@ -6,6 +6,8 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import ChannelScreen from './screens/Channel';
 import TopBar from './components/Topbar';
+import PrivateRoute from './routes/PrivateRoute';
+import LoginScreen from './screens/Login';
 
 function App() {
   return (
@@ -13,12 +15,15 @@ function App() {
       <Router>
         <TopBar />
         <Switch>
-          <Route path="/channel/:channelId">
+          <Route path="/login">
+            <LoginScreen />
+          </Route>
+          <PrivateRoute path="/channel/:channelId">
             <ChannelScreen />
-          </Route>
-          <Route exact path="/">
+          </PrivateRoute>
+          <PrivateRoute exact path="/">
             <HomeScreen />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </ThemeProvider>
